@@ -3,7 +3,7 @@
 "use strict";
 
 function pow(x, n) {
-  return x ** n;
+  return Math.pow(x, n);
 }
 
 function add2(n1, n2) {
