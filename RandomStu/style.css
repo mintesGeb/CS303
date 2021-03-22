@@ -1,0 +1,23 @@
+body {
+  background-color: #9e9d89;
+  text-align: center;
+}
+.display-div {
+  text-align: center;
+}
+.display {
+  width: 50%;
+
+  /* position: absolute;
+  top: 35%; */
+  /* right: 17%;  */
+  padding: 100px auto;
+  margin: 100px auto;
+  font-size: 4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 300;
+}
+.btn {
+  background-color: #b67162;
+  color: #fff;
+}
