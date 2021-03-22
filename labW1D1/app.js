@@ -30,5 +30,19 @@ function add(...args) {
 	0 - 59   NC
 */
 function computeGrade(grades) {
-  return "???";
+  let sum = 0;
+  let ave;
+  let letterGrade;
+  for (let i = 0; i < grades.length; i++) {
+    sum += grades[i];
+  }
+  ave = sum / grades.length;
+
+  if (ave >= 90) letterGrade = "A";
+  else if (ave >= 80) letterGrade = "B";
+  else if (ave >= 70) letterGrade = "C";
+  else if (ave >= 60) letterGrade = "D";
+  else letterGrade = "NC";
+
+  return letterGrade;
 }
