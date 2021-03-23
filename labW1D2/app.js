@@ -4,21 +4,24 @@
 
 // See tests.js for behavior
 function nameString(obj) {
+  if (obj === undefined) return `no object passed`;
   let sum = "";
   if (obj === null) return `${obj} argument`;
+  else {
+    let keys = Object.keys(obj);
+    let sorted = keys.sort();
+    // console.log(sorted);
 
-  let keys = Object.keys(obj);
-  if (keys.length === 0) return `object has no properties`;
-  if (keys.length === 0) {
-    return `no elements`;
-  } else {
+    if (keys.length === 0) return `object has no properties`;
+
     for (let each of keys) {
       sum += each + ".";
     }
     sum = sum.slice(0, -1);
   }
+
   return sum;
 }
 
-let x = nameString({});
+let x = nameString({ a: 4, h: 6, b: 7 });
 console.log(x);
