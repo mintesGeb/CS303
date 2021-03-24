@@ -12,23 +12,32 @@ Creates an object that contains the following information from the "this" object
 	cntReferences	// count of reference properties (use the typeof operator to compute this)
 }	
 */
+
 function analyzer() {
-  function Analysis(numProperties, cntShortName, cntReference) {
-    this.numProperties = numProperties;
-    this.cntShortName = cntShortName;
-    this.cntReference = cntReference;
+  let output = {};
+  let keysArray = Object.keys(this);
+  let valueArray = Object.values(this);
+  // console.log(valueArray);
+  output.numProperties = keysArray.length;
+
+  let countNum = 0;
+  for (let each of keysArray) {
+    // console.log(typeof each.value);
+    if (each.length < 3) countNum++;
   }
+  output.cntShortName = countNum;
 
-  return new Analysis(6, 2, 1);
+  let countObj = 0;
+  for (let each of valueArray) {
+    // console.log(typeof each);
+    if (typeof each === "object") {
+      countObj++;
+    }
+  }
+  output.cntReference = countObj;
+
+  return output;
 }
-
-let person = new Person("bob", "usa", [100, 90]);
-person.f = analyzer; // name too short
-person.x = 0; // name too short
-let analysis = person.f();
-console.log(analysis.numProperties); //, 6);
-console.log(analysis.cntShortName); // 2);
-console.log(analysis.cntReference); // 1);
 
 // console.log(analysis);
 
@@ -59,9 +68,6 @@ function Person(name, country, grades) {
     let ave = sum / arr.length;
     return ave;
   };
-  //   this.analyzer=function (){
-  // 	  this.
-  //   }
 }
 
 // let x = new Person("mintes", "Ethio", [90, 100]);
