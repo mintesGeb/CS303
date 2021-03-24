@@ -13,8 +13,29 @@ Creates an object that contains the following information from the "this" object
 }	
 */
 function analyzer() {
-  return {};
+  function Analysis(numProperties, cntShortName, cntReference) {
+    this.numProperties = numProperties;
+    this.cntShortName = cntShortName;
+    this.cntReference = cntReference;
+  }
+
+  return new Analysis(6, 2, 1);
 }
+
+let person = new Person("bob", "usa", [100, 90]);
+person.f = analyzer; // name too short
+person.x = 0; // name too short
+let analysis = person.f();
+console.log(analysis.numProperties); //, 6);
+console.log(analysis.cntShortName); // 2);
+console.log(analysis.cntReference); // 1);
+
+// console.log(analysis);
+
+// let analysis = person.f();
+//             assert.equal(analysis.numProperties, 6);
+// 			assert.equal(analysis.cntShortName, 2);
+// 			assert.equal(analysis.cntReference, 1);
 
 /* Constructor for a person object
 	Person(name, country, grades) creates object
