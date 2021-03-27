@@ -58,10 +58,6 @@ function addMissingProperty(obj) {
 function Person(name, country) {
   this.name = name;
   this.country = country;
-  //   this.creationDate = function () {
-  //     let date = new Date();
-  //     return date;
-  //   };
   this.creationDate = new Date();
 }
 
