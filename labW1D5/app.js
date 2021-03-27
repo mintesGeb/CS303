@@ -28,18 +28,31 @@ function countSubstring(s, target) {
 console.log(countSubstring("5abdxyxabdabdd", "abd"));
 
 // Save obj in localStorage
-function saveInLocalStorage(name, obj) {}
+function saveInLocalStorage(name, obj) {
+  return localStorage.setItem(name, JSON.stringify(obj));
+}
 
 // Return value of name in local storage
-function getFromLocalStorage(name) {}
+function getFromLocalStorage(name) {
+  let result = localStorage.getItem(name);
+  return JSON.parse(result);
+}
 
 // This function has an unbounded this. When it is called, the this will be bound to some object
 // The argument "obj" is a single key/value pair, e.g. {location:"Fairfield"}
 // It can be any key/value pair
 // addMissProperty tests the object bound to its "this" for the key of "obj" (e.g., location)
 // If the bound object doesn't have that key then the key and its value is added to the bound object.
-function addMissingProperty(obj) {}
+function addMissingProperty(obj) {
+  let entriesArr = Object.entries(obj);
+  for (let each of entriesArr) {
+    let keyEach = each[0];
+    let valueEach = each[1];
+    if (!this[keyEach]) this[keyEach] = valueEach;
+  }
+}
 
+//
 // Constructor function which creates object {name:name, country:country, creationData:...}
 // Where creationDate is the time that the object is created.
 function Person(name, country) {}
