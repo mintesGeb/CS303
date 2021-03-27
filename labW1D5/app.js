@@ -55,17 +55,40 @@ function addMissingProperty(obj) {
 //
 // Constructor function which creates object {name:name, country:country, creationData:...}
 // Where creationDate is the time that the object is created.
-function Person(name, country) {}
+function Person(name, country) {
+  this.name = name;
+  this.country = country;
+  //   this.creationDate = function () {
+  //     let date = new Date();
+  //     return date;
+  //   };
+  this.creationDate = new Date();
+}
 
 // The parameter "students" is an array of student objects. Each student object has form
 // {name:some name, country: some country}
 // This function creates a Map using the "students" parameter and sets the value of each student
 // in it to zero. This will be the number of classes that the student has missed.
 // The function incrementAbscences (see next) can be called to increment the number of absences.
-function register(students) {}
+function register(students) {
+  let map = new Map();
+  for (let each of students) {
+    map.set(each, 0);
+  }
+  return map;
+}
 
+console.log(
+  register([
+    { name: "bob", country: "usa" },
+    { name: "jill", country: "usa" },
+  ])
+);
 // Parameters:
 // course is a Map mapping student objects to an integer which is the number of days missed
 // student is an object that can be used as a key to course.
 // This function increments the number of days missed for the student.
-function incrementAbsences(course, student) {}
+function incrementAbsences(course, student) {
+  let stu1 = course.get(student);
+  return course.set(student, stu1 + 1);
+}
